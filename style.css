@@ -1,7 +1,7 @@
 .roll-container {
   margin: 0 auto; 
   width: 80%; /* Make the container take full viewport width */
-  max-width: 600px; /* Adjust the maximum width as per your design */
+  max-width: 400px; /* Adjust the maximum width as per your design */
 }
   
   .roll-section {

@@ -1,0 +1,68 @@
+.roll-container { /* Center the container holding your sections */
+  margin: 0 auto; /* Automatic left/right margins for centering */
+  width: 80%; /* Adjust this width percentage as needed */
+}
+  
+  .roll-section {
+    border: 5px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f0f0f0; /* Light background */
+    width: 400px
+    
+  }
+  
+  .roll-button {
+    background-color: #4CAF50; /* Example green color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth hover effect */
+    font-size: 18px; /* Adjust the text size within the button */
+  }
+  
+  .roll-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+
+  .minus, 
+.plus {
+    font-size: 24px;  /* Increase font size */
+    width: 40px;      /* Adjust button width */
+    height: 40px;     /* Adjust button height */
+    padding: 5px;     /* Adjust padding if needed */
+    margin-bottom: 10px;
+}
+
+#clear-all-results {
+    background-color: #dc3545; /* Example red color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px; /* Add spacing below the button */
+  }
+
+  .roll-section .quantity + .roll-button { /* Targets the first roll button */
+    display: block; 
+    margin: 0 auto 5px auto; /* Centers the button, adds top margin */
+}
+
+  .advantage-disadvantage {
+    display: inline-block; /* Allows side-by-side placement */
+    margin-top: 5px; 
+}
+
+body { /* Apply centering to the main content */
+  text-align: center;
+}
+
+h1 { /* Center your main title */
+  text-align: center;
+}

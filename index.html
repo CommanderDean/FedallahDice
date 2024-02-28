@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fedalah Eldritch Blast</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Fedalah's Eldritch Blast</h1>
+
+  <div class="clear-container">
+    <button id="clear-all-results">Clear All Results</button>
+  </div>
+
+  <div class="roll-container"> 
+     <div class="roll-section">
+        <h2>Attack Rolls</h2>
+        <h3>d20+9</h3>
+        <div class="quantity">
+            <button class="minus">-</button> 
+            <span class="num-rolls">1</span> 
+            <button class="plus">+</button>
+        </div>
+        <button class="roll-button" data-type="attack">Roll d20+9</button>
+        <button class="roll-button advantage-disadvantage" data-type="attack-adv">Advantage</button> 
+        <button class="roll-button advantage-disadvantage" data-type="attack-dis">Disadvantage</button> 
+ 
+        <div class="results">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Roll</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="roll-container"> 
+    <div class="roll-section">
+        <h2>Damage Rolls</h2>
+        <h3>d10+5</h3>
+        <div class="quantity">
+            <button class="minus">-</button> 
+            <span class="num-rolls">1</span> 
+            <button class="plus">+</button>
+        </div>
+        <button class="roll-button" data-type="damage">Standard</button>
+        <button class="roll-button" data-type="damage-extra">Hexed (+6)</button>  
+        <div class="results">
+             <table>
+                 <thead>
+                    <tr>
+                        <th>Roll</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody> 
+        </div>
+    </div>
+</div>
+
+
+
+
+  <script src="script.js"></script> 
+</body>
+</html>

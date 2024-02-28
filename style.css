@@ -1,16 +1,17 @@
-.roll-container { /* Center the container holding your sections */
-  margin: 0 auto; /* Automatic left/right margins for centering */
-  width: 80%; /* Adjust this width percentage as needed */
+.roll-container {
+  margin: 0 auto; 
+  width: 100%; /* Make the container take full viewport width */
+  max-width: 600px; /* Adjust the maximum width as per your design */
 }
   
   .roll-section {
     border: 5px solid #ccc;
-    padding: 20px;
+    padding: 20px 10px; /* Adjust padding if needed */
     margin: 10px;
     text-align: center;
     border-radius: 8px; /* Rounded corners */
     background-color: #f0f0f0; /* Light background */
-    width: 400px
+    width: 100%
     
   }
   

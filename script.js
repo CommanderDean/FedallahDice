@@ -19,7 +19,7 @@ function rollAttack(numRolls, resultsDiv) {
       resultCell.textContent = attackResult;
 
       // Apply color classes based on the roll
-      if (roll < 10) {
+      if (roll < 2) {
           resultCell.classList.add('low-roll'); 
       } else if (roll === 20) {
           resultCell.classList.add('critical-roll'); 
@@ -71,7 +71,7 @@ function rollAttackAdvantage(numRolls, resultsDiv) {
 // Helper function to apply the color class
 function applyColorClass(roll, resultCell) {
   resultCell.classList.remove('low-roll', 'normal-roll', 'critical-roll'); // Clear existing classes
-  if (roll < 10) {
+  if (roll < 2) {
       resultCell.classList.add('low-roll'); 
   } else if (roll === 20) {
       resultCell.classList.add('critical-roll'); 
@@ -116,7 +116,7 @@ function rollAttackDisadvantage(numRolls, resultsDiv) {
 // Helper function to apply the color class
 function applyColorClass(roll, resultCell) {
   resultCell.classList.remove('low-roll', 'normal-roll', 'critical-roll'); // Clear existing classes
-  if (roll < 10) {
+  if (roll < 2) {
       resultCell.classList.add('low-roll'); 
   } else if (roll === 20) {
       resultCell.classList.add('critical-roll'); 

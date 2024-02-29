@@ -4,6 +4,11 @@
   <title>Fedalah Eldritch Blast</title>
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -15,14 +20,14 @@
 
   <div class="roll-container"> 
      <div class="roll-section">
-        <h2>Attack Rolls</h2>
-        <h3>d20+9</h3>
+        <h2>Attack (d20+9)</h2>
         <div class="quantity">
             <button class="minus">-</button> 
             <span class="num-rolls">1</span> 
             <button class="plus">+</button>
         </div>
         <button class="roll-button" data-type="attack">Attack</button>
+        
         <button class="roll-button advantage-disadvantage" data-type="attack-adv">Advantage</button> 
         <button class="roll-button advantage-disadvantage" data-type="attack-dis">Disadvantage</button> 
  
@@ -31,21 +36,23 @@
                 <thead>
                     <tr>
                         <th>Roll</th>
-                        <th>Result</th>
+                        <th>Working</th> <th>Result</th>          
                     </tr>
                 </thead>
                 <tbody>
                 </tbody>
             </table>
-        </div>
+        </div> 
+
+
     </div>
   </div>
 
 
   <div class="roll-container"> 
     <div class="roll-section">
-        <h2>Damage Rolls</h2>
-        <h3>d10+5</h3>
+        <h2>Damage (d10+5)</h2>
+        <h3></h3>
         <div class="quantity">
             <button class="minus">-</button> 
             <span class="num-rolls">1</span> 

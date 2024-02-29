@@ -10,8 +10,9 @@
     margin: 0px;
     text-align: center;
     border-radius: 8px; /* Rounded corners */
-    background-color: #f0f0f0; /* Light background */
+    background-color: #ebebeb; /* Light background */
     width: 100%
+    
     
   }
   
@@ -62,8 +63,30 @@
 
 body { /* Apply centering to the main content */
   text-align: center;
+
 }
 
 h1 { /* Center your main title */
   text-align: center;
+}
+
+.low-roll {
+  color: red;
+}
+.normal-roll {
+  color: green;
+}
+.critical-roll {
+  color: orange;
+  font-weight: bold;
+}
+
+.medievalsharp-regular {
+  font-family: "MedievalSharp", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 { /* If your title is an h1 tag */
+  font-family: 'MedievalSharp', serif; /* Replace 'FontNameHere' with your chosen font */
 }

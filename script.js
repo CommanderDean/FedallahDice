@@ -1,22 +1,36 @@
 function rollAttack(numRolls, resultsDiv) {
-  console.log("Attack roll function called!");
   let tableBody = resultsDiv.querySelector('tbody'); 
-  tableBody.innerHTML = ''; 
+  tableBody.innerHTML = '';  
 
   for (let i = 0; i < numRolls; i++) {
       let roll = Math.floor(Math.random() * 20) + 1; 
       let attackResult = roll + 9; 
 
       let row = document.createElement('tr');
+
+      // Create cells 
       let rollCell = document.createElement('td');
+      let workingCell = document.createElement('td'); // Cell for working out
       let resultCell = document.createElement('td');
 
-      rollCell.textContent = `Roll ${i + 1}: ${roll} + 9`; 
-      resultCell.textContent = attackResult; 
+      // Set content 
+      rollCell.textContent = `Roll ${i + 1}: ${roll}`;
+      workingCell.textContent = `${roll} + 9`; // Add the working
+      resultCell.textContent = attackResult;
 
+      // Apply color classes based on the roll
+      if (roll < 10) {
+          resultCell.classList.add('low-roll'); 
+      } else if (roll === 20) {
+          resultCell.classList.add('critical-roll'); 
+      } else {
+          resultCell.classList.add('normal-roll'); 
+      }
+
+      // Add cells to row
       row.appendChild(rollCell);
-      row.appendChild(resultCell);
-
+      row.appendChild(workingCell);
+      row.appendChild(resultCell); 
       tableBody.appendChild(row);
   }
 }
@@ -31,17 +45,38 @@ function rollAttackAdvantage(numRolls, resultsDiv) {
       let roll2 = Math.floor(Math.random() * 20) + 1;
       let attackResult = Math.max(roll1, roll2) + 9; 
 
+      // 1. Create cells
       let row = document.createElement('tr');
       let rollsCell = document.createElement('td');
+      let workingCell = document.createElement('td'); // Cell for working out 
       let resultCell = document.createElement('td');
 
-      rollsCell.textContent = `Roll ${i + 1}: ${roll1}, ${roll2} + 9`; 
-      resultCell.textContent = attackResult; 
+      // 2. Set content
+      rollsCell.textContent = `Roll ${i + 1}: ${roll1}, ${roll2}`;
+      workingCell.textContent = `${Math.max(roll1, roll2)} + 9`; 
+      resultCell.textContent = attackResult;
 
+      // 3. Apply color classes 
+      let higherRoll = Math.max(roll1, roll2); 
+      applyColorClass(higherRoll, resultCell); 
+
+      // 4. Append elements
       row.appendChild(rollsCell);
-      row.appendChild(resultCell);
-
+      row.appendChild(workingCell);
+      row.appendChild(resultCell); 
       tableBody.appendChild(row);
+  }
+}
+
+// Helper function to apply the color class
+function applyColorClass(roll, resultCell) {
+  resultCell.classList.remove('low-roll', 'normal-roll', 'critical-roll'); // Clear existing classes
+  if (roll < 10) {
+      resultCell.classList.add('low-roll'); 
+  } else if (roll === 20) {
+      resultCell.classList.add('critical-roll'); 
+  } else {
+      resultCell.classList.add('normal-roll'); 
   }
 }
 
@@ -55,19 +90,41 @@ function rollAttackDisadvantage(numRolls, resultsDiv) {
       let roll2 = Math.floor(Math.random() * 20) + 1;
       let attackResult = Math.min(roll1, roll2) + 9; 
 
+      // 1. Create cells
       let row = document.createElement('tr');
       let rollsCell = document.createElement('td');
+      let workingCell = document.createElement('td'); // Cell for working out
       let resultCell = document.createElement('td');
 
-      rollsCell.textContent = `Roll ${i + 1}: ${roll1}, ${roll2} + 9`; 
-      resultCell.textContent = attackResult; 
+      // 2. Set content
+      rollsCell.textContent = `Roll ${i + 1}: ${roll1}, ${roll2}`;
+      workingCell.textContent = `${Math.min(roll1, roll2)} + 9`; 
+      resultCell.textContent = attackResult;
 
+      // 3. Apply color classes 
+      let lowerRoll = Math.min(roll1, roll2); 
+      applyColorClass(lowerRoll, resultCell); 
+
+      // 4. Append elements
       row.appendChild(rollsCell);
-      row.appendChild(resultCell);
-
+      row.appendChild(workingCell);
+      row.appendChild(resultCell); 
       tableBody.appendChild(row);
   }
 }
+
+// Helper function to apply the color class
+function applyColorClass(roll, resultCell) {
+  resultCell.classList.remove('low-roll', 'normal-roll', 'critical-roll'); // Clear existing classes
+  if (roll < 10) {
+      resultCell.classList.add('low-roll'); 
+  } else if (roll === 20) {
+      resultCell.classList.add('critical-roll'); 
+  } else {
+      resultCell.classList.add('normal-roll'); 
+  }
+}
+
 
 function rollDamage(numRolls, resultsDiv) {
   console.log("Damage roll function called!");

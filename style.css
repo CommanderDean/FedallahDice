@@ -1,3 +1,9 @@
+/* Import a fantasy styled font for headers and a readable font for text */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+
+
 .roll-container {
   margin: 0 auto; 
   width: 100%; /* Make the container take full viewport width */
@@ -8,24 +14,37 @@
     table {
       margin: 0 auto; /* Centers the table horizontally */
       width: 80%; /* Adjust the percentage for desired table width */
+      border-collapse: collapse; /* Collapse the borders for a clean look */
   }
-    border: 5px solid #ccc;
-    padding-top: 0px;
-    padding-bottom: 20px;
+    border: 5px solid #0d285c;
+    padding-top: 5px;
+    padding-bottom: 10px;
     padding-left: 0px; 
     padding-right: 0px; 
     margin: 0px;
     text-align: center;
-    border-radius: 8px; /* Rounded corners */
-    background-color: #ebebeb; /* Light background */
+    border-radius: 10px; /* Slightly more pronounced rounded corners */    border: none; /* Removing the border for a cleaner look */
+    background-color: rgba(28, 20, 48, 0.85); /* Dark background with opacity */
+    color: #f8f8f2; /* Off-white text for better readability */
     width: 100%
-    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
     
   }
+
+
+  .roll-section table td,
+  .roll-section table th {
+    border: 1px solid #f8f8f2; /* Subtle border for cells */
+    padding: 8px; /* Padding inside cells */
+    color: #f8f8f2; /* Text color for readability */
+  }
+
+
+
   
   .roll-button {
     background-color: #4CAF50; /* Example green color */
-    color: white;
+    color: #333; /* Dark text for better contrast */
     padding: 10px 20px;
     border: none;
     margin: 10px;
@@ -46,16 +65,20 @@
     height: 40px;     /* Adjust button height */
     padding: 5px;     /* Adjust padding if needed */
     margin-bottom: 10px;
+    background-color: #44475a; /* Darker grey background */
+  color: #f8f8f2; /* Off-white text */
 }
 
 #clear-all-results {
-    background-color: #dc3545; /* Example red color */
-    color: white;
+  background-color: #3c3b6e; /* Dark purple */
+  color: #00ff00; /* Neon green for text to pop out */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 15px; /* Add spacing below the button */
+    font-family: 'Libre Baskerville', serif;
+    border: 1px solid #f8f8f2; /* Off-white border */
   }
 
   .roll-section .quantity + .roll-button { /* Targets the first roll button */
@@ -71,20 +94,31 @@
 body { /* Apply centering to the main content */
   text-align: center;
 
+  background-image: url('images/background.webp'); /* Adjust the path to where your image is stored */
+  background-position: center center; /* Centers the background image */
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+
+  background-color: #0a0a0a;
+  font-family: 'Libre Baskerville', serif; /* This font is for the text */
+  color: #fff; /* White text color */
+
 }
 
 h1 { /* Center your main title */
   text-align: center;
+  font-family: 'Aclonica', sans-serif; /* This font is for headings */
+  color: #c9a602; /* A golden hue for the main title */
 }
 
-.low-roll {
-  color: red;
+.roll-section .low-roll {
+  color: #ff5555; /* Bright red for low rolls */
 }
-.normal-roll {
-  color: green;
+.roll-section .normal-roll {
+  color: #50fa7b; /* Bright green for normal rolls */
 }
-.critical-roll {
-  color: orange;
+.roll-section .critical-roll {
+  color: #fac123; /* Light purple for critical rolls */
   font-weight: bold;
 }
 
@@ -106,3 +140,4 @@ h1 { /* If your title is an h1 tag */
 .damage-button-wrapper button { 
   margin: 0 5px; 
 }
+

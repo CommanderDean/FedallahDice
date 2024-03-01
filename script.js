@@ -1,4 +1,6 @@
-function rollAttack(numRolls, resultsDiv) {
+function rollAttack(numRolls, resultsDiv, diceCategory) {
+  console.log("Attack roll function called!");
+
   let tableBody = resultsDiv.querySelector('tbody'); 
   tableBody.innerHTML = '';  
 
@@ -32,6 +34,10 @@ function rollAttack(numRolls, resultsDiv) {
       row.appendChild(workingCell);
       row.appendChild(resultCell); 
       tableBody.appendChild(row);
+
+      console.log("diceCategory before playDiceSound:", diceCategory);
+      playDiceSound(numRolls); // Call the function to play the sound 
+    
   }
 }
 
@@ -160,6 +166,8 @@ function rollDamage(numRolls, resultsDiv) {
   totalRow.appendChild(totalLabelCell); 
   totalRow.appendChild(totalDamageCell);
   tableBody.appendChild(totalRow);
+
+  playDiceSound(numRolls); // Call the function to play the sound 
 }
 
 function rollDamageExtraD6(numRolls, resultsDiv) {
@@ -206,7 +214,7 @@ const minusButtons = document.querySelectorAll('.minus');
 rollButtons.forEach(button => {
   button.addEventListener('click', () => {
       const type = button.dataset.type;
-      const numRolls = button.parentNode.querySelector('.num-rolls').textContent;
+      const numRolls = parseInt(button.parentNode.querySelector('.num-rolls').textContent, 10);
       const resultsDiv = button.parentNode.querySelector('.results');
 
       switch (type) {
@@ -253,3 +261,31 @@ rollButtons.forEach(button => {
     resultsTables.forEach(tableBody => tableBody.innerHTML = ''); 
   });
   
+  function playDiceSound(numRolls) {
+    console.log("playDiceSound called with numRolls (at the start):", numRolls); 
+
+    // Force diceCategory calculation here 
+    let diceCategory; 
+    if (numRolls === 1 || numRolls === 0) {
+        diceCategory = "1die"; 
+    } else if (numRolls === 2) {
+        diceCategory = "2dice"; 
+    } else { 
+        diceCategory = "many"; 
+    }
+
+    console.log("PlayDiceSound called with diceCategory (an the end):", diceCategory);
+
+    sound = selectSound(diceCategory);  
+    sound.play(); 
+}
+
+
+function selectSound(diceCategory) {
+
+  console.log("selectSound called with diceCategory:", diceCategory);
+    
+    const variation = Math.floor(Math.random() * 3) + 1; 
+    const soundFile = `sounds/roll_${diceCategory}_${variation}.ogg`; // Adjust path if needed
+    return new Audio(soundFile);
+}

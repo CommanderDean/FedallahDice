@@ -97,3 +97,12 @@ h1 { /* Center your main title */
 h1 { /* If your title is an h1 tag */
   font-family: 'MedievalSharp', serif; /* Replace 'FontNameHere' with your chosen font */
 }
+
+.damage-button-wrapper {
+  display: flex; 
+  justify-content: center; 
+}
+
+.damage-button-wrapper button { 
+  margin: 0 5px; 
+}

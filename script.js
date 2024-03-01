@@ -71,6 +71,9 @@ function rollAttackAdvantage(numRolls, resultsDiv) {
       row.appendChild(workingCell);
       row.appendChild(resultCell); 
       tableBody.appendChild(row);
+
+      playDiceSound(numRolls); // Call the function to play the sound 
+      
   }
 }
 
@@ -116,6 +119,8 @@ function rollAttackDisadvantage(numRolls, resultsDiv) {
       row.appendChild(workingCell);
       row.appendChild(resultCell); 
       tableBody.appendChild(row);
+
+      playDiceSound(numRolls); // Call the function to play the sound 
   }
 }
 
@@ -204,6 +209,9 @@ function rollDamageExtraD6(numRolls, resultsDiv) {
   totalRow.appendChild(totalLabelCell); 
   totalRow.appendChild(totalDamageCell);
   tableBody.appendChild(totalRow);
+
+  playDiceSound(numRolls); // Call the function to play the sound 
+
 }
 
 const rollButtons = document.querySelectorAll('.roll-button');

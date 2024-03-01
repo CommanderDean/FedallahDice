@@ -98,11 +98,11 @@ body { /* Apply centering to the main content */
   background-position: center center; /* Centers the background image */
   background-size: cover; /* Ensures the image covers the entire area */
   background-repeat: no-repeat; /* Prevents the image from repeating */
-
+  background-attachment: fixed; /* This will keep the image fixed during scroll */
   background-color: #0a0a0a;
   font-family: 'Libre Baskerville', serif; /* This font is for the text */
   color: #fff; /* White text color */
-
+  background-size: cover; /* Cover ensures the image covers the whole area */
 }
 
 h1 { /* Center your main title */
@@ -140,4 +140,3 @@ h1 { /* If your title is an h1 tag */
 .damage-button-wrapper button { 
   margin: 0 5px; 
 }
-

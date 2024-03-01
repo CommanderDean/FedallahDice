@@ -1,5 +1,7 @@
 function rollAttack(numRolls, resultsDiv, diceCategory) {
   console.log("Attack roll function called!");
+  playDiceSound(numRolls); // Call the function to play the sound 
+
 
   let tableBody = resultsDiv.querySelector('tbody'); 
   tableBody.innerHTML = '';  
@@ -35,14 +37,14 @@ function rollAttack(numRolls, resultsDiv, diceCategory) {
       row.appendChild(resultCell); 
       tableBody.appendChild(row);
 
-      console.log("diceCategory before playDiceSound:", diceCategory);
-      playDiceSound(numRolls); // Call the function to play the sound 
     
   }
 }
 
 function rollAttackAdvantage(numRolls, resultsDiv) {
   console.log("Attack roll with Advantage function called!");
+  playDiceSound(numRolls); // Call the function to play the sound 
+  
   let tableBody = resultsDiv.querySelector('tbody'); 
   tableBody.innerHTML = ''; 
 
@@ -72,7 +74,6 @@ function rollAttackAdvantage(numRolls, resultsDiv) {
       row.appendChild(resultCell); 
       tableBody.appendChild(row);
 
-      playDiceSound(numRolls); // Call the function to play the sound 
       
   }
 }
@@ -91,6 +92,8 @@ function applyColorClass(roll, resultCell) {
 
 function rollAttackDisadvantage(numRolls, resultsDiv) {
   console.log("Attack roll with Disadvantage function called!");
+  
+  playDiceSound(numRolls); // Call the function to play the sound 
   let tableBody = resultsDiv.querySelector('tbody'); 
   tableBody.innerHTML = ''; 
 
@@ -119,8 +122,6 @@ function rollAttackDisadvantage(numRolls, resultsDiv) {
       row.appendChild(workingCell);
       row.appendChild(resultCell); 
       tableBody.appendChild(row);
-
-      playDiceSound(numRolls); // Call the function to play the sound 
   }
 }
 
@@ -139,6 +140,7 @@ function applyColorClass(roll, resultCell) {
 
 function rollDamage(numRolls, resultsDiv) {
   console.log("Damage roll function called!");
+  playDiceSound(numRolls); // Call the function to play the sound 
 
   let tableBody = resultsDiv.querySelector('tbody'); 
   tableBody.innerHTML = '';
@@ -172,11 +174,13 @@ function rollDamage(numRolls, resultsDiv) {
   totalRow.appendChild(totalDamageCell);
   tableBody.appendChild(totalRow);
 
-  playDiceSound(numRolls); // Call the function to play the sound 
+
 }
 
 function rollDamageExtraD6(numRolls, resultsDiv) {
   console.log("Damage roll + d6 function called!");
+
+  playDiceSound(numRolls); // Call the function to play the sound 
 
   let tableBody = resultsDiv.querySelector('tbody'); 
   tableBody.innerHTML = ''; 
@@ -210,7 +214,7 @@ function rollDamageExtraD6(numRolls, resultsDiv) {
   totalRow.appendChild(totalDamageCell);
   tableBody.appendChild(totalRow);
 
-  playDiceSound(numRolls); // Call the function to play the sound 
+
 
 }
 
@@ -269,24 +273,35 @@ rollButtons.forEach(button => {
     resultsTables.forEach(tableBody => tableBody.innerHTML = ''); 
   });
   
-  function playDiceSound(numRolls) {
-    console.log("playDiceSound called with numRolls (at the start):", numRolls); 
 
-    // Force diceCategory calculation here 
-    let diceCategory; 
-    if (numRolls === 1 || numRolls === 0) {
-        diceCategory = "1die"; 
-    } else if (numRolls === 2) {
-        diceCategory = "2dice"; 
-    } else { 
-        diceCategory = "many"; 
-    }
 
-    console.log("PlayDiceSound called with diceCategory (an the end):", diceCategory);
+  let currentSound = null; // This variable will hold the currently playing sound
 
-    sound = selectSound(diceCategory);  
-    sound.play(); 
+function playDiceSound(numRolls) {
+  console.log("playDiceSound called with numRolls (at the start):", numRolls);
+
+  // Stop the currently playing sound, if any
+  if (currentSound && !currentSound.paused) {
+    currentSound.pause();
+    currentSound.currentTime = 0; // Reset the sound to the beginning
+  }
+
+  // Continue with the rest of your function as before
+  let diceCategory;
+  if (numRolls === 1 || numRolls === 0) {
+    diceCategory = "1die";
+  } else if (numRolls === 2) {
+    diceCategory = "2dice";
+  } else {
+    diceCategory = "many";
+  }
+
+  console.log("PlayDiceSound called with diceCategory (at the end):", diceCategory);
+
+  currentSound = selectSound(diceCategory); // Update currentSound to the new sound about to be played
+  currentSound.play();
 }
+
 
 
 function selectSound(diceCategory) {
